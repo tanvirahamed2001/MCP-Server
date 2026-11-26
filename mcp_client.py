@@ -77,11 +77,10 @@ class MCPClient:
 # For testing
 async def main():
     async with MCPClient(
-        # If using Python without UV, update command to 'python' and remove "run" from args.
-        command="uv",
-        args=["run", "mcp_server.py"],
-    ) as _client:
-        pass
+    command="uv", args=["run", "mcp_server.py"]
+    ) as client:
+        result = await client.list_tools()
+        print(result)
 
 
 if __name__ == "__main__":
